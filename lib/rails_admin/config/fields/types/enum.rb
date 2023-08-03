@@ -11,7 +11,7 @@ module RailsAdmin
 
           register_instance_option :filter_operators do
             %w[_discard] +
-              enum.map do |label, value|
+              enum.collect do |label, value|
                 {label: label, value: value || label}
               end + (required? ? [] : %w[_separator _present _blank])
           end
